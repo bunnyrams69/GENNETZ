@@ -23,10 +23,8 @@ export default function Footer() {
           
           {/* Column 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="text-cyan-400 text-lg sm:text-xl select-none" aria-hidden="true">
-                ♥
-              </span>
+            <div className="flex items-center gap-2.5">
+              <img src="/images/logo-3d-transparent.png" alt="GENNETZ" className="h-8 w-8 object-contain drop-shadow-[0_0_12px_rgba(45,212,191,0.4)]" />
               <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-head">
                 GENNETZ
               </span>

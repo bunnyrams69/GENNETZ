@@ -8,7 +8,8 @@ export default function Navbar() {
     <nav className="navbar" id="navbar">
       <div className="container nav-container">
         <a href="#home" className="nav-logo-link">
-          <img src="/images/logo.png" alt="GENNETZ" className="logo" />
+          <img src="/images/logo-3d-transparent.png" alt="GENNETZ" className="logo-3d-icon" />
+          <span className="logo-brand-text">GENNETZ</span>
         </a>
         <div className="nav-links">
           <a href="#home">Home</a>

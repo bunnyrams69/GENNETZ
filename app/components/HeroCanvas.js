@@ -235,14 +235,13 @@ export default function HeroCanvas() {
           <div className="hero-halo-glow" aria-hidden="true" />
           <div className="hero-halo-ring" aria-hidden="true" />
 
-          {/* Transparent Cutout Portrait with seamless background immersion */}
-          <div className="hero-portrait-frame">
+          {/* 3D Constellation Centerpiece */}
+          <div className="hero-portrait-frame hero-3d-frame">
             <img 
-              src="/images/hero-portrait-cutout.png" 
-              alt="GENNETZ Leadership & Strategy"
-              className="hero-portrait-img"
+              src="/images/logo-3d-vignette.png" 
+              alt="GENNETZ 3D Constellation Emblem"
+              className="hero-3d-img"
             />
-            <div className="hero-portrait-fade" aria-hidden="true" />
           </div>
 
           {/* Floating Glass Badge */}

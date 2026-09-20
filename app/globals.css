@@ -249,6 +249,35 @@ section {
 .nav-logo-link {
   display: flex;
   align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.nav-logo-link:hover {
+  transform: translateY(-1px);
+}
+
+.logo-3d-icon {
+  height: 38px;
+  width: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.45));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.nav-logo-link:hover .logo-3d-icon {
+  transform: scale(1.12) rotate(5deg);
+  filter: drop-shadow(0 0 18px rgba(45, 212, 191, 0.75));
+}
+
+.logo-brand-text {
+  font-family: var(--font-head), 'Oswald', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
 .logo {
@@ -556,6 +585,42 @@ section {
   height: 70px;
   background: linear-gradient(to top, #070708 0%, transparent 100%);
   pointer-events: none;
+}
+
+.hero-3d-frame {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.hero-3d-img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 45px rgba(20, 184, 166, 0.35)) contrast(1.06) brightness(1.02);
+  animation: hero3dFloat 6s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.hero-3d-frame:hover .hero-3d-img {
+  transform: scale(1.04) translateY(-6px);
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 65px rgba(45, 212, 191, 0.55)) contrast(1.08);
+}
+
+@keyframes hero3dFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.2deg);
+  }
 }
 
 .hero-floating-badge {
@@ -1283,10 +1348,20 @@ section {
     max-height: 360px;
   }
 
+  .hero-3d-img {
+    max-width: 320px;
+  }
+
   .hero-floating-badge {
     bottom: 10px;
     left: 10px;
     padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-3d-img {
+    max-width: 260px;
   }
 }
 
