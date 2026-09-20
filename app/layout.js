@@ -19,6 +19,19 @@ export const metadata = {
   title: 'GENNETZ | Strategy-Led Instagram Management',
   description: 'End-to-end Instagram management — strategy, content, shooting, editing, publishing, and reporting. We don\'t promise viral numbers. We build the process behind real growth.',
   keywords: 'Instagram management, social media agency, content creation, GENNETZ',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
