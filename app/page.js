@@ -25,7 +25,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .hero p{color:var(--muted);font-size:18px;max-width:650px}.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}.btn{padding:14px 20px;border-radius:12px;border:1px solid var(--line);font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:9px;transition:.2s}.btn.primary{background:var(--teal);color:#03100e;border-color:var(--teal)}.btn:hover{transform:translateY(-2px)}
 .hero-brand{min-height:540px;border:1px solid rgba(98,210,197,.18);border-radius:30px;background:linear-gradient(145deg,#07100e,#0d1715);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 35px 100px rgba(0,0,0,.35)}
 .hero-brand:before{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(98,210,197,.18);border-radius:50%;box-shadow:0 0 0 50px rgba(98,210,197,.025),0 0 0 100px rgba(98,210,197,.018)}
-.brand-stack{position:relative;text-align:center;z-index:2}.logo-tile{width:154px;height:108px;object-fit:cover;border-radius:12px;margin:auto;box-shadow:0 18px 45px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08)}.brand-stack h2{font-family:'Space Grotesk';font-size:68px;letter-spacing:-4px;margin-top:22px}.brand-stack .meaning{letter-spacing:7px;font-size:11px;font-weight:800;color:#c6d2cf;margin-top:3px}.brand-stack .tag{margin-top:20px;color:var(--teal);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.brand-stack{position:relative;text-align:center;z-index:2}.logo-tile{width:154px;height:108px;object-fit:cover;margin:auto;border:none;box-shadow:none;mix-blend-mode:screen}.brand-stack h2{font-family:'Space Grotesk';font-size:68px;letter-spacing:-4px;margin-top:22px}.brand-stack .meaning{letter-spacing:7px;font-size:11px;font-weight:800;color:#c6d2cf;margin-top:3px}.brand-stack .tag{margin-top:20px;color:var(--teal);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
 .section{padding:110px 0}.section.alt{background:#070d0c;border-block:1px solid rgba(255,255,255,.04)}.eyebrow{color:var(--teal);font-weight:900;letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:15px}.section h2{font-family:'Space Grotesk';font-size:clamp(38px,5vw,66px);line-height:1;letter-spacing:-3px;max-width:800px}.lead{color:var(--muted);max-width:700px;font-size:17px;margin-top:18px}
 .promise{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px}.promise-card{padding:34px;border:1px solid rgba(98,210,197,.16);border-radius:22px;background:linear-gradient(145deg,#0a1211,#0c1513)}.promise-card h3{font-size:26px;margin-bottom:10px}.promise-card p{color:var(--muted)}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:45px}.service{min-height:210px;padding:24px;border:1px solid rgba(255,255,255,.07);border-radius:18px;background:#0a100f}.num{font-size:12px;color:var(--teal);font-weight:900;letter-spacing:2px}.service h3{margin:26px 0 9px;font-size:20px}.service p{color:var(--muted);font-size:14px}
@@ -150,7 +150,9 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:35px 0 50px;color:#829
   .logo-tile {
     width: 90px !important;
     height: 64px !important;
-    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+    mix-blend-mode: screen !important;
   }
   .brand-stack h2 {
     font-size: clamp(30px, 8.5vw, 40px) !important;
