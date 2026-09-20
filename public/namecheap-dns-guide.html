@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namecheap DNS Setup Guide — gennetz.com</title>
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: #12151f;
+      --card-border: #1e2436;
+      --accent: #14b8a6;
+      --accent-glow: #2dd4bf;
+      --orange: #ff6a00;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --green: #10b981;
+      --code-bg: #0b0e17;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      color: var(--accent-glow);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-glow);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Summary Card */
+    .summary-box {
+      background: linear-gradient(145deg, #101524, #0d101c);
+      border: 1px solid rgba(45, 212, 191, 0.25);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .summary-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-glow);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .records-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .records-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .records-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--card-border);
+      vertical-align: middle;
+    }
+
+    .type-tag {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: monospace;
+    }
+
+    .type-a {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .type-cname {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .code-val {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      background: var(--code-bg);
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid #232a3d;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .copy-btn {
+      background: #1f273d;
+      border: 1px solid #2e3957;
+      color: var(--text);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent);
+      color: #000000;
+      border-color: var(--accent);
+    }
+
+    /* Steps */
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .step-card:hover {
+      border-color: rgba(45, 212, 191, 0.35);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #0f766e);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .step-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Namecheap UI Simulation */
+    .mock-nc-ui {
+      background: #0d0f18;
+      border: 1px solid #252c42;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+    }
+
+    .mock-header {
+      background: #171b29;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid #252c42;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .mock-tabs {
+      display: flex;
+      background: #111422;
+      border-bottom: 1px solid #252c42;
+    }
+
+    .mock-tab {
+      padding: 0.6rem 1.2rem;
+      color: #718096;
+      border-bottom: 2px solid transparent;
+    }
+
+    .mock-tab.active {
+      color: #ffffff;
+      border-bottom: 2px solid var(--orange);
+      background: rgba(255, 106, 0, 0.05);
+      font-weight: 600;
+    }
+
+    .mock-body {
+      padding: 1rem;
+    }
+
+    .mock-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 2fr 1fr 0.5fr;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.65rem 0.5rem;
+      border-bottom: 1px solid #1a2035;
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+
+    .mock-row.header {
+      color: #718096;
+      font-weight: 600;
+      border-bottom: 1px solid #2a334d;
+    }
+
+    .btn-nc-orange {
+      background: var(--orange);
+      color: #ffffff;
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-nc-red {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+    .note-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: #fbbf24;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .note-icon {
+      font-size: 1.1rem;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--green);
+      color: #000000;
+      font-weight: 700;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="badge">
+        <span class="pulse"></span>
+        <span>DNS Configuration Guide</span>
+      </div>
+      <h1>Connecting gennetz.com in Namecheap</h1>
+      <p class="subtitle">
+        Follow this 3-minute guide to configure your Namecheap DNS records and link your domain to the new live website.
+      </p>
+    </div>
+
+    <!-- Quick Reference Summary -->
+    <div class="summary-box">
+      <div class="summary-title">
+        <span>⚡ Quick Copy — Records to Add</span>
+      </div>
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Host</th>
+            <th>Value (Target)</th>
+            <th>TTL</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="type-tag type-a">A Record</span></td>
+            <td><span class="code-val">@</span></td>
+            <td><span class="code-val">76.76.21.21</span></td>
+            <td>Automatic</td>
+            <td>
+              <button class="copy-btn" onclick="copyText('76.76.21.21')">Copy IP</button>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="type-tag type-cname">CNAME</span></td>
+            <td><span class="code-val">www</span></td>
+            <td><span class="code-val">cname.vercel-dns.com</span></td>
+            <td>Automatic</td>
+            <td>
+              <button class="copy-btn" onclick="copyText('cname.vercel-dns.com')">Copy CNAME</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">Log in to Namecheap & Open "Domain List"</div>
+      </div>
+      <p class="step-desc">
+        1. Open <a href="https://www.namecheap.com" target="_blank" style="color: var(--accent-glow);">namecheap.com</a> and log in with your account credentials.<br>
+        2. Click on <strong>Domain List</strong> in the left sidebar.<br>
+        3. Locate <strong>gennetz.com</strong> and click the black/orange <strong>MANAGE</strong> button on the right.
+      </p>
+      <div class="mock-nc-ui">
+        <div class="mock-header">
+          <span>Namecheap Dashboard &rarr; Domain List</span>
+        </div>
+        <div class="mock-body" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong style="color: #ffffff; font-size: 1rem;">gennetz.com</strong>
+            <p style="color: #718096; font-size: 0.8rem;">Status: Active</p>
+          </div>
+          <span class="btn-nc-orange">MANAGE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">Navigate to the "Advanced DNS" Tab</div>
+      </div>
+      <p class="step-desc">
+        Inside the domain management screen, click on the <strong>Advanced DNS</strong> tab at the top.
+      </p>
+      <div class="mock-nc-ui">
+        <div class="mock-tabs">
+          <div class="mock-tab">Domain</div>
+          <div class="mock-tab">Products</div>
+          <div class="mock-tab">Sharing & Transfer</div>
+          <div class="mock-tab active">Advanced DNS</div>
+        </div>
+        <div class="mock-body" style="color: #94a3b8; font-size: 0.85rem;">
+          Under this tab, you will see the <strong>HOST RECORDS</strong> table where we will add our records.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <span class="note-icon">⚠️</span>
+        <div>
+          <strong>Important: Check Nameservers</strong><br>
+          Under the <strong>Domain</strong> tab, ensure <strong>NAMESERVERS</strong> is set to <strong>Namecheap BasicDNS</strong>. (If it is set to Custom DNS, the Advanced DNS tab will not work).
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">Delete Default Parking Records (If Present)</div>
+      </div>
+      <p class="step-desc">
+        Namecheap often puts default records for new domains (e.g. <em>URL Redirect Record</em> pointing to parking pages or default parking IP).<br>
+        If you see any <strong>URL Redirect Record</strong> or old parking <strong>A Record</strong>, click the <strong>Trash Can (Delete)</strong> icon next to them to remove them.
+      </p>
+      <div class="mock-nc-ui">
+        <div class="mock-body">
+          <div class="mock-row header">
+            <span>Type</span><span>Host</span><span>Value</span><span>TTL</span><span></span>
+          </div>
+          <div class="mock-row" style="opacity: 0.6; text-decoration: line-through;">
+            <span>URL Redirect Record</span><span>@</span><span>http://www.gennetz.com</span><span>Unmasked</span>
+            <span><span class="btn-nc-red">DELETE</span></span>
+          </div>
+          <div class="mock-row" style="opacity: 0.6; text-decoration: line-through;">
+            <span>CNAME Record</span><span>www</span><span>parkingpage.namecheap.com</span><span>Automatic</span>
+            <span><span class="btn-nc-red">DELETE</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">Add the 2 New Records</div>
+      </div>
+      <p class="step-desc">
+        Click the red/orange <strong>ADD NEW RECORD</strong> button at the bottom of the table twice to add the two records below:
+      </p>
+
+      <div class="mock-nc-ui">
+        <div class="mock-body">
+          <div class="mock-row header">
+            <span>Type</span><span>Host</span><span>Value</span><span>TTL</span><span>Save</span>
+          </div>
+          <!-- Record 1 -->
+          <div class="mock-row" style="background: rgba(16, 185, 129, 0.05); border-left: 3px solid #10b981;">
+            <strong style="color: #34d399;">A Record</strong>
+            <span>@</span>
+            <span style="color: #ffffff; font-weight: 700;">76.76.21.21</span>
+            <span>Automatic</span>
+            <span style="color: #10b981; font-weight: 900; font-size: 1.1rem;">✔</span>
+          </div>
+          <!-- Record 2 -->
+          <div class="mock-row" style="background: rgba(59, 130, 246, 0.05); border-left: 3px solid #3b82f6;">
+            <strong style="color: #60a5fa;">CNAME Record</strong>
+            <span>www</span>
+            <span style="color: #ffffff; font-weight: 700;">cname.vercel-dns.com</span>
+            <span>Automatic</span>
+            <span style="color: #10b981; font-weight: 900; font-size: 1.1rem;">✔</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="step-desc" style="margin-top: 1rem;">
+        👉 <strong>Remember:</strong> Click the small green checkmark (<strong>✔</strong>) on the right side of each row to save the record!
+      </p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title">Verification & Live Deployment</div>
+      </div>
+      <p class="step-desc">
+        1. Once you click save in Namecheap, DNS propagation begins automatically.<br>
+        2. Go back to your <strong>Vercel Dashboard &rarr; Project Settings &rarr; Domains</strong>.<br>
+        3. Click the <strong>Refresh</strong> button next to <code>gennetz.com</code>.<br>
+        4. In 1 to 5 minutes, the red warning will turn into a <strong>Blue/Green Checkmark (Valid Configuration)</strong> and a free SSL certificate will be issued automatically.
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>GENNETZ Agency Website Deployment &bull; Built with Next.js &amp; Vercel</p>
+    </div>
+
+  </div>
+
+  <div id="toast">Copied to clipboard!</div>
+
+  <script>
+    function copyText(val) {
+      navigator.clipboard.writeText(val).then(() => {
+        const toast = document.getElementById('toast');
+        toast.innerText = 'Copied: ' + val;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2200);
+      });
+    }
+  </script>
+</body>
+</html>
