@@ -193,7 +193,7 @@ export default function HeroCanvas() {
             <MagneticLiquidButton
               variant="aurora"
               size="lg"
-              href="https://wa.me/message/65L6V2U6GR77D1"
+              href="https://wa.me/916383884581"
               target="_blank"
               leftIcon={<MessageCircle size={18} />}
               className="font-head uppercase tracking-wider text-base"

@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://wa.me/message/65L6V2U6GR77D1" 
+                  href="https://wa.me/916383884581" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors group"
@@ -113,12 +113,12 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-cyan-400 shrink-0" />
                 <a 
-                  href="https://wa.me/message/65L6V2U6GR77D1" 
+                  href="https://wa.me/916383884581" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="hover:text-cyan-400 transition-colors"
                 >
-                  +91 86373 73116
+                  +91 63838 84581
                 </a>
               </li>
               <li className="flex items-center gap-3">

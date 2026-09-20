@@ -37,7 +37,7 @@ export default function Services() {
             <MagneticLiquidButton
               variant="glass"
               size="md"
-              href="https://wa.me/message/65L6V2U6GR77D1"
+              href="https://wa.me/916383884581"
               target="_blank"
               leftIcon={<MessageCircle size={16} />}
               className="w-full font-head uppercase tracking-wider"
@@ -72,7 +72,7 @@ export default function Services() {
             <MagneticLiquidButton
               variant="aurora"
               size="md"
-              href="https://wa.me/message/65L6V2U6GR77D1"
+              href="https://wa.me/916383884581"
               target="_blank"
               leftIcon={<MessageCircle size={16} />}
               className="w-full font-head uppercase tracking-wider"
@@ -102,7 +102,7 @@ export default function Services() {
             <MagneticLiquidButton
               variant="glass"
               size="md"
-              href="https://wa.me/message/65L6V2U6GR77D1"
+              href="https://wa.me/916383884581"
               target="_blank"
               leftIcon={<MessageCircle size={16} />}
               className="w-full font-head uppercase tracking-wider"
@@ -131,7 +131,7 @@ export default function Services() {
             <MagneticLiquidButton
               variant="glass"
               size="md"
-              href="https://wa.me/message/65L6V2U6GR77D1"
+              href="https://wa.me/916383884581"
               target="_blank"
               leftIcon={<MessageCircle size={16} />}
               className="w-full font-head uppercase tracking-wider"
