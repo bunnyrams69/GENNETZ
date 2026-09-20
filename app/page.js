@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
@@ -34,8 +35,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .cta{padding:80px 0 100px}.cta-box{border:1px solid var(--line);border-radius:28px;padding:55px;background:radial-gradient(circle at 80% 20%,rgba(98,210,197,.12),transparent 30%),#09110f;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta h2{font-family:'Space Grotesk';font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-2px}.cta p{color:var(--muted);margin-top:12px;max-width:580px}
 footer{border-top:1px solid rgba(255,255,255,.07);padding:35px 0 50px;color:#82918d;font-size:13px}.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-brand{color:white;font-weight:900;letter-spacing:2px}.smalllinks{display:flex;gap:18px;flex-wrap:wrap}.smalllinks a:hover{color:var(--teal)}
 .reveal{animation:up .8s ease both}@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@media(max-width:900px){.hero-grid,.team-grid{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.hero-brand{min-height:430px}.navlinks{display:none}.menu{display:block}}
-@media(max-width:620px){.container{width:min(var(--max),calc(100% - 28px))}.hero{padding-top:105px}.hero h1{font-size:52px;letter-spacing:-2.5px}.brand-stack h2{font-size:50px}.services,.process,.promise,.social-grid{grid-template-columns:1fr}.cta-box{padding:34px;display:block}.cta .btn{margin-top:22px}.section{padding:80px 0}}
+
 
 .plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px;align-items:stretch}
 .plan-card{border:1px solid rgba(255,255,255,.08);border-radius:22px;background:linear-gradient(180deg,#0a1312 0%,#060b0a 100%);padding:36px 24px 28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;transition:.3s}
@@ -59,10 +59,314 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:35px 0 50px;color:#829
 @media(max-width:640px){.plans-grid{grid-template-columns:1fr}}
 
 
+
+/* ============================================================
+   MOBILE RESPONSIVE PERFECTION
+   ============================================================ */
+@media(max-width: 900px) {
+  .hero-grid, .team-grid { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr 1fr; }
+  .process { grid-template-columns: 1fr 1fr; }
+  .navlinks {
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(5, 9, 9, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-direction: column;
+    padding: 24px 28px 32px;
+    gap: 18px;
+    transform: translateY(-130%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 49;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+  }
+  .navlinks.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .navlinks a {
+    font-size: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .menu {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 26px;
+    line-height: 1;
+  }
+}
+
+@media(max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .container {
+    width: min(var(--max), calc(100% - 32px)) !important;
+  }
+  .nav-inner {
+    height: 70px !important;
+  }
+  .brand span {
+    font-size: 16px !important;
+    letter-spacing: 1.5px !important;
+  }
+  .brand img {
+    width: 36px !important;
+    height: 26px !important;
+  }
+  
+  /* Hero on mobile */
+  .hero {
+    min-height: auto !important;
+    padding: 95px 0 45px !important;
+  }
+  .hero-brand {
+    min-height: auto !important;
+    padding: 28px 18px 24px !important;
+    margin-bottom: 24px !important;
+    border-radius: 20px !important;
+  }
+  .hero-brand:before {
+    width: 260px !important;
+    height: 260px !important;
+    box-shadow: 0 0 0 20px rgba(98, 210, 197, 0.025), 0 0 0 40px rgba(98, 210, 197, 0.018) !important;
+  }
+  .logo-tile {
+    width: 90px !important;
+    height: 64px !important;
+    border-radius: 10px !important;
+  }
+  .brand-stack h2 {
+    font-size: clamp(30px, 8.5vw, 40px) !important;
+    letter-spacing: -2px !important;
+    margin-top: 14px !important;
+    line-height: 1 !important;
+  }
+  .brand-stack .meaning {
+    letter-spacing: 3px !important;
+    font-size: 9px !important;
+    margin-top: 4px !important;
+  }
+  .brand-stack .tag {
+    margin-top: 12px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+  }
+  
+  /* Hero Content */
+  .kicker {
+    font-size: 10px !important;
+    letter-spacing: 0.8px !important;
+    padding: 6px 12px !important;
+    max-width: 100% !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    white-space: normal !important;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 40px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -1.5px !important;
+    margin: 16px 0 14px !important;
+  }
+  .hero p {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    padding: 0 2px !important;
+  }
+  .actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
+  .actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 18px !important;
+    font-size: 13.5px !important;
+  }
+  
+  /* Sections on mobile */
+  .section {
+    padding: 55px 0 !important;
+  }
+  .eyebrow {
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 8px !important;
+  }
+  .section h2 {
+    font-size: clamp(25px, 6.8vw, 34px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1.5px !important;
+  }
+  .lead {
+    font-size: 15px !important;
+    margin-top: 10px !important;
+  }
+  
+  .promise, .services, .process, .social-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  .promise-card {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+  .promise-card h3 {
+    font-size: 20px !important;
+  }
+  .service {
+    min-height: auto !important;
+    padding: 20px 18px !important;
+    border-radius: 16px !important;
+  }
+  .service h3 {
+    margin: 14px 0 6px !important;
+    font-size: 18px !important;
+  }
+  .step {
+    padding: 16px 14px !important;
+  }
+  .step h3 {
+    font-size: 17px !important;
+    margin-top: 6px !important;
+  }
+  
+  /* Plans grid on mobile */
+  .plans-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-top: 28px !important;
+  }
+  .plan-card {
+    padding: 28px 18px 22px !important;
+    border-radius: 20px !important;
+  }
+  .plan-title {
+    font-size: 28px !important;
+  }
+  .plan-desc {
+    min-height: auto !important;
+    margin-bottom: 16px !important;
+    font-size: 13px !important;
+  }
+  .plan-deliverables {
+    padding-bottom: 14px !important;
+    margin-bottom: 16px !important;
+    font-size: 12px !important;
+  }
+  .plan-features {
+    margin: 0 0 22px 0 !important;
+    gap: 10px !important;
+  }
+  .plan-features li {
+    font-size: 12px !important;
+  }
+  .plan-btn {
+    padding: 12px 16px !important;
+    font-size: 11px !important;
+  }
+  
+  /* Team & Socials on mobile */
+  .team-main, .founder {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+  }
+  .team-main h3, .founder h3 {
+    font-size: 22px !important;
+  }
+  .chips {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+  .chip {
+    padding: 6px 11px !important;
+    font-size: 11px !important;
+  }
+  
+  .social-card {
+    padding: 20px 16px !important;
+    border-radius: 18px !important;
+  }
+  .social-card h3 {
+    font-size: 18px !important;
+  }
+  .socials a {
+    padding: 8px 11px !important;
+    font-size: 11px !important;
+  }
+  
+  /* CTA Box on mobile */
+  .cta {
+    padding: 45px 0 65px !important;
+  }
+  .cta-box {
+    padding: 26px 18px !important;
+    border-radius: 20px !important;
+    display: block !important;
+  }
+  .cta-box h2 {
+    font-size: clamp(25px, 6.5vw, 34px) !important;
+    letter-spacing: -1.5px !important;
+  }
+  .cta p {
+    font-size: 14.5px !important;
+    margin-top: 10px !important;
+  }
+  .cta .btn {
+    margin-top: 18px !important;
+    width: 100% !important;
+  }
+  
+  /* Footer on mobile */
+  footer {
+    padding: 28px 0 40px !important;
+  }
+  .footer-grid {
+    flex-direction: column !important;
+    gap: 18px !important;
+    text-align: center !important;
+  }
+  .smalllinks {
+    justify-content: center !important;
+    gap: 14px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media(max-width: 380px) {
+  .hero-brand { padding: 22px 14px 18px !important; }
+  .logo-tile { width: 80px !important; height: 56px !important; }
+  .brand-stack h2 { font-size: 28px !important; }
+  .hero h1 { font-size: 27px !important; }
+  .brand-stack .tag { font-size: 8.5px !important; }
+  .kicker { font-size: 9px !important; padding: 5px 10px !important; }
+}
+
 ` }} />
       
 
-<nav className="nav"><div className="container nav-inner"><a className="brand" href="#home"><img src="assets/logo-icon.png" alt="GEN-NETZ logo" /><span>GEN-NETZ</span></a><div className="navlinks"><a href="#what">What We Do</a><a href="#process">Process</a><a href="#plans">Plans</a><a href="#team">Team</a><a href="#socials">Socials</a><a href="#contact">Contact</a></div><button className="menu" aria-label="Menu">☰</button></div></nav>
+<nav className="nav"><div className="container nav-inner"><a className="brand" href="#home"><img src="assets/logo-icon.png" alt="GEN-NETZ logo" /><span>GEN-NETZ</span></a><div className={`navlinks ${menuOpen ? 'open' : ''}`}><a href="#what" onClick={() => setMenuOpen(false)}>What We Do</a><a href="#process" onClick={() => setMenuOpen(false)}>Process</a><a href="#plans" onClick={() => setMenuOpen(false)}>Plans</a><a href="#team" onClick={() => setMenuOpen(false)}>Team</a><a href="#socials" onClick={() => setMenuOpen(false)}>Socials</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></div><button className="menu" aria-label="Menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? '✕' : '☰'}</button></div></nav>
 
 <main id="home">
 <section className="hero"><div className="container"><div className="hero-brand reveal" style={{minHeight: 'auto', padding: '52px 28px', marginBottom: '42px'}}><div className="brand-stack"><img className="logo-tile" src="assets/logo-icon.png" alt="GEN-NETZ logo" /><h2>GEN-NETZ</h2><div className="meaning">NEXTGENERATION NETWORKZ</div><div className="tag">Strategy • Content • Production • Management</div></div></div><div className="hero-grid" style={{gridTemplateColumns: '1fr'}}><div className="reveal" style={{textAlign: 'center', maxWidth: '1050px', margin: 'auto'}}><div className="kicker"><span className="dot"></span> Strategy-led • Content-focused • Business-ready</div><h1>Your Instagram.<br /><span className="teal">Our Responsibility.</span></h1><p style={{margin: 'auto'}}>You focus on your business, brand or creator journey. GEN-NETZ handles the Instagram system behind it — strategy, content, shooting, editing, publishing, community and performance analysis.</p><div className="actions" style={{justifyContent: 'center'}}><a className="btn primary" href="#contact">Start a conversation →</a><a className="btn" href="#what">See what we handle</a></div></div></div></div></section>
