@@ -9,8 +9,12 @@ export default function TrustCards() {
     <section id="trust" className="trust">
       <div className="container">
         <div className="section-header reveal">
-          <h2>HOW WE HANDLE YOUR ACCOUNT</h2>
-          <p className="subline">Transparency in every step</p>
+          <div className="eyebrow-badge inline-flex items-center gap-2 mb-3">
+            <span className="pulse-dot"></span>
+            <span>DIRECT ACCOUNTABILITY</span>
+          </div>
+          <h2>HOW I HANDLE YOUR ACCOUNT</h2>
+          <p className="subline">Complete transparency and personal responsibility in every step</p>
         </div>
 
         <div className="trust-grid">
@@ -19,7 +23,7 @@ export default function TrustCards() {
             <Lock className="trust-icon" size={32} />
             <h3>Your Account Stays Yours</h3>
             <p>
-              We use official, revocable access. We never ask for your password. You keep full ownership and can revoke access anytime.
+              I use official, revocable access via Meta Business Suite. I never ask for your password. You keep 100% ownership and can revoke access anytime with one click.
             </p>
           </OptimizedTiltCard>
 
@@ -28,7 +32,7 @@ export default function TrustCards() {
             <CheckCircle className="trust-icon" size={32} />
             <h3>Nothing Publishes Without Your Approval</h3>
             <p>
-              Every piece of content follows: GENNETZ creates &rarr; You review &rarr; Feedback &rarr; Changes &rarr; Your approval &rarr; Publishing. With prior authority, we can publish within agreed guidelines &mdash; but never without your knowledge.
+              Every single piece follows a clear chain: I create &rarr; You review &rarr; Feedback &rarr; Revisions &rarr; Your approval &rarr; Publish. Nothing ever goes live without your sign-off.
             </p>
           </OptimizedTiltCard>
 
@@ -37,7 +41,7 @@ export default function TrustCards() {
             <Shield className="trust-icon" size={32} />
             <h3>Sensitive Issues Go Straight to You</h3>
             <p>
-              Payments, refunds, personal information, legal matters, and serious complaints are transferred directly to you. We handle comments and general DMs &mdash; never the stuff that should stay in your hands.
+              Payments, refunds, private customer info, legal matters, and serious inquiries are escalated immediately to you. I handle content and community &mdash; never private operations.
             </p>
           </OptimizedTiltCard>
 
@@ -46,7 +50,7 @@ export default function TrustCards() {
             <CreditCard className="trust-icon" size={32} />
             <h3>No Surprise Charges</h3>
             <p>
-              Anything beyond your plan &mdash; extra content, a full reshoot, a new concept, additional visits &mdash; is quoted and confirmed before work starts. You always know the cost before we begin.
+              Anything outside your plan &mdash; extra deliverables, full reshoots, or additional shooting visits &mdash; is quoted and approved before work begins. You will never see surprise invoices.
             </p>
           </OptimizedTiltCard>
 
@@ -55,7 +59,16 @@ export default function TrustCards() {
             <BarChart2 className="trust-icon" size={32} />
             <h3>Honest Reporting, Not Vanity Metrics</h3>
             <p>
-              We don&apos;t guarantee a specific number of followers, views, or sales. We commit to professional execution and continuous improvement &mdash; and we show you real performance data, not inflated numbers.
+              I don&apos;t guarantee fake follower numbers or artificial virality. I commit to systematic execution and share real analytics: watch time, shares, saves, and conversion data.
+            </p>
+          </OptimizedTiltCard>
+
+          {/* Card 6 */}
+          <OptimizedTiltCard className="trust-card reveal" data-delay="500">
+            <Shield className="trust-icon" size={32} />
+            <h3>I&apos;m Reachable. Always.</h3>
+            <p>
+              You communicate directly with me on WhatsApp and email &mdash; not an account coordinator or an outsourced support queue. When you reach out, you speak with Chaithu.
             </p>
           </OptimizedTiltCard>
         </div>

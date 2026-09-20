@@ -3,8 +3,12 @@ export default function ProcessTimeline() {
     <section id="process" className="process">
       <div className="container">
         <div className="section-header reveal">
-          <h2>HOW IT WORKS</h2>
-          <p className="subline">Our 8-step process, every month</p>
+          <div className="eyebrow-badge inline-flex items-center gap-2 mb-3">
+            <span className="pulse-dot"></span>
+            <span>SYSTEMATIC EXECUTION</span>
+          </div>
+          <h2>HOW I WORK</h2>
+          <p className="subline">A repeatable 6-step content cycle, executed personally every month</p>
         </div>
 
         <div className="timeline">
@@ -12,8 +16,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-left">
             <div className="timeline-node">1</div>
             <div className="timeline-content">
-              <h3>Plan</h3>
-              <p>GENNETZ researches the account, audience, competition, trends and business requirements.</p>
+              <h3>01 &mdash; RESEARCH</h3>
+              <p><strong>Understand Your Account:</strong> I study your profile, core audience, competitor landscape, current trends, and business objectives to establish your unfair advantage.</p>
             </div>
           </div>
 
@@ -21,8 +25,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-right">
             <div className="timeline-node">2</div>
             <div className="timeline-content">
-              <h3>Create</h3>
-              <p>Content ideas and formats are planned according to the selected plan.</p>
+              <h3>02 &mdash; PLAN</h3>
+              <p><strong>Build the Content Plan:</strong> I craft your monthly calendar &mdash; hook concepts, proven formats, script drafts, and shooting schedules shared with you beforehand.</p>
             </div>
           </div>
 
@@ -30,8 +34,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-left">
             <div className="timeline-node">3</div>
             <div className="timeline-content">
-              <h3>Produce</h3>
-              <p>Content is shot by GENNETZ where included, or supplied by the client where applicable.</p>
+              <h3>03 &mdash; PRODUCE</h3>
+              <p><strong>Shoot &amp; Edit:</strong> I personally direct and shoot (where included in your plan) and edit every piece with cinematic pacing, sound design, and custom typography.</p>
             </div>
           </div>
 
@@ -39,8 +43,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-right">
             <div className="timeline-node">4</div>
             <div className="timeline-content">
-              <h3>Edit</h3>
-              <p>GENNETZ edits the agreed content and prepares captions, covers and other required elements.</p>
+              <h3>04 &mdash; REVIEW</h3>
+              <p><strong>Your Approval First:</strong> Nothing ever goes live without you seeing and approving it. I present the drafts, incorporate your feedback, and polish to perfection.</p>
             </div>
           </div>
 
@@ -48,8 +52,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-left">
             <div className="timeline-node">5</div>
             <div className="timeline-content">
-              <h3>Review</h3>
-              <p>Client feedback is collected according to the agreed approval process.</p>
+              <h3>05 &mdash; PUBLISH</h3>
+              <p><strong>Go Live:</strong> Scheduled and published at peak audience engagement windows with researched captions, sound selections, and hashtag strategy.</p>
             </div>
           </div>
 
@@ -57,26 +61,8 @@ export default function ProcessTimeline() {
           <div className="timeline-item reveal reveal-right">
             <div className="timeline-node">6</div>
             <div className="timeline-content">
-              <h3>Publish</h3>
-              <p>Approved content is published according to the planned schedule.</p>
-            </div>
-          </div>
-
-          {/* Step 7 */}
-          <div className="timeline-item reveal reveal-left">
-            <div className="timeline-node">7</div>
-            <div className="timeline-content">
-              <h3>Analyse</h3>
-              <p>GENNETZ reviews performance and identifies what is working and what needs improvement.</p>
-            </div>
-          </div>
-
-          {/* Step 8 */}
-          <div className="timeline-item reveal reveal-right">
-            <div className="timeline-node">8</div>
-            <div className="timeline-content">
-              <h3>Improve</h3>
-              <p>Future content and strategy are adjusted using the learnings.</p>
+              <h3>06 &mdash; REPORT</h3>
+              <p><strong>Real Data, Honest Review:</strong> Transparent monthly breakdown of watch time, reach, saves, and conversions &mdash; turning insights directly into next cycle&apos;s growth.</p>
             </div>
           </div>
         </div>

@@ -12,11 +12,11 @@ export default function Navbar() {
           <span className="logo-brand-text">GENNETZ</span>
         </a>
         <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
+          <a href="#what-i-do">What I Do</a>
           <a href="#process">Process</a>
+          <a href="#plans">Plans</a>
+          <a href="#about">About</a>
           <a href="#trust">Trust</a>
-          <a href="#work">Work</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">
@@ -50,11 +50,11 @@ export default function Navbar() {
         </button>
       </div>
       <div className="mobile-menu" id="mobile-menu">
-        <a href="#home" className="mobile-link">Home</a>
-        <a href="#services" className="mobile-link">Services</a>
+        <a href="#what-i-do" className="mobile-link">What I Do</a>
         <a href="#process" className="mobile-link">Process</a>
+        <a href="#plans" className="mobile-link">Plans</a>
+        <a href="#about" className="mobile-link">About</a>
         <a href="#trust" className="mobile-link">Trust</a>
-        <a href="#work" className="mobile-link">Work</a>
         <a href="#contact" className="mobile-link">Contact</a>
         <div style={{ marginTop: '2rem' }}>
           <MagneticLiquidButton

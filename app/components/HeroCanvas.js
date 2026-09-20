@@ -175,18 +175,16 @@ export default function HeroCanvas() {
         <div className="hero-content reveal reveal-left">
           <div className="eyebrow-badge">
             <span className="pulse-dot"></span>
-            <span>STRATEGY-LED &bull; CONTENT-FOCUSED &bull; BUSINESS-READY</span>
+            <span>CREATOR-LED &bull; STRATEGY &bull; FULL EXECUTION</span>
           </div>
 
           <h1 className="hero-title">
-            WE DON&apos;T PROMISE<br />
-            VIRAL NUMBERS.<br />
-            <span className="accent">WE BUILD THE PROCESS</span><br />
-            BEHIND REAL GROWTH.
+            I GREW 0 TO 100K.<br />
+            <span className="accent">NOW I DO IT FOR YOU.</span>
           </h1>
 
           <p className="hero-sub">
-            End-to-end Instagram management &mdash; strategy, content, shooting, editing, publishing, and reporting.
+            Not an agency. Not a team of strangers. I&apos;m Chaithu &mdash; a creator who built a real audience from scratch and now applies that exact system to your brand&apos;s Instagram.
           </p>
 
           <div className="hero-btns">
@@ -198,12 +196,12 @@ export default function HeroCanvas() {
               leftIcon={<MessageCircle size={18} />}
               className="font-head uppercase tracking-wider text-base"
             >
-              Chat on WhatsApp
+              Chat on WhatsApp &rarr;
             </MagneticLiquidButton>
             <MagneticLiquidButton
               variant="glass"
               size="lg"
-              href="#services"
+              href="#plans"
               rightIcon={<span className="text-base leading-none">&darr;</span>}
               className="font-head uppercase tracking-wider text-base"
             >
@@ -214,15 +212,15 @@ export default function HeroCanvas() {
           <div className="trust-row">
             <div className="trust-item">
               <span className="status-dot"></span>
-              <span>Full-cycle Management</span>
+              <span>I personally edit every reel</span>
             </div>
             <div className="trust-item">
               <span className="status-dot"></span>
-              <span>Strategy &rarr; Content &rarr; Growth</span>
+              <span>100K followers built from 0</span>
             </div>
             <div className="trust-item">
               <span className="status-dot"></span>
-              <span>Your Instagram. Our Responsibility.</span>
+              <span>Your Instagram. My responsibility.</span>
             </div>
           </div>
         </div>
@@ -239,18 +237,24 @@ export default function HeroCanvas() {
           <div className="hero-portrait-frame">
             <img 
               src="/images/hero-portrait-cutout.png" 
-              alt="GENNETZ Leadership & Strategy"
+              alt="Chaithu — Creator & Strategist behind GEN-NETZ"
               className="hero-portrait-img"
             />
             <div className="hero-portrait-fade" aria-hidden="true" />
           </div>
 
-          {/* Floating Glass Badge */}
-          <div className="hero-floating-badge">
-            <span className="hero-floating-badge-dot" />
-            <div>
-              <p className="hero-badge-title">Direct Strategy</p>
-              <p className="hero-badge-sub">Full Execution</p>
+          {/* Floating Credentials Card */}
+          <div className="hero-floating-badge !flex-col !items-start gap-2 max-w-[270px] sm:max-w-xs border border-teal-500/40 bg-neutral-950/90 backdrop-blur-xl p-3 sm:p-4 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_25px_rgba(45,212,191,0.2)]">
+            <div className="flex items-center gap-2">
+              <span className="hero-floating-badge-dot" />
+              <span className="text-xs sm:text-sm font-bold text-white tracking-wide uppercase font-head">100K+ Followers</span>
+              <span className="text-[10px] text-teal-400 font-medium px-1.5 py-0.5 rounded bg-teal-500/10 border border-teal-500/20">Built from 0</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 pt-0.5">
+              <span className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-neutral-300">Personal Editor</span>
+              <span className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 font-medium">Real Creator</span>
+              <span className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-neutral-300">Strategy-First</span>
+              <span className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-neutral-300">Known Face</span>
             </div>
           </div>
         </div>

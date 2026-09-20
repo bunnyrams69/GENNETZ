@@ -114,10 +114,10 @@ export default function PortfolioGrid() {
           </div>
 
           <h2 className="relative mb-3 font-head font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase">
-            OUR FEATURED WORK
+            FEATURED CLIENT WORK
           </h2>
           <p className="max-w-2xl text-neutral-400 text-base sm:text-lg mb-4">
-            High-converting Instagram reels produced, shot, and edited for real brands.
+            High-converting Instagram reels produced, directed, and personally edited by me for real brands.
           </p>
           <span className="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-teal-400">
             <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
@@ -178,8 +178,8 @@ export default function PortfolioGrid() {
         {/* Client Testimonial Highlight */}
         <div className="mx-auto mt-16 max-w-3xl px-6 text-center lg:px-0">
           <p className="mb-6 font-medium text-lg text-neutral-200 leading-relaxed md:text-xl">
-            &ldquo;The exceptional execution from GENNETZ truly impressed us. We
-            suggested a creative direction, and their production team delivered it with
+            &ldquo;The execution from Chaithu truly impressed us. We
+            suggested a creative direction, and he delivered it with
             remarkable speed, strategy, and cinematic quality!&rdquo;
           </p>
           <div className="flex flex-col items-center gap-2">
